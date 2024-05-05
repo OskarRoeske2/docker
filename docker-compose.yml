@@ -2,7 +2,7 @@ services:
   redis:
     image: redislabs/redismod
     ports:
-      - "6379:6379"
+      - '6379:6379'
     command: --requirepass ${REDIS_PASSWORD}
   web:
     build: .
