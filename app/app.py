@@ -1,3 +1,4 @@
+import pandas as pd
 import time
 import redis
 from flask import Flask, render_template
@@ -22,7 +23,14 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return render_template('hello.html', name= "BIPM", count = count)
+    return render_template('hello.html', name= "cheap lunch", count = count)
+
+@app.route('/titanic')
+def titanic():
+    df = pd.read_csv('titanic.csv')
+    html_table = df.head().to_html()
+    return render_template('titanic.html', table=html_table)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)

@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My first dynamic Website</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <nav style="background-color:rgb(250, 250, 250);font-family: 'Courier New', Courier, monospace">
+        <a href="/" style=color:black>Home</a>
+        <a href="{{ url_for('titanic') }}" style=color:black >Titanic</a>
+        <a href="https://github.com/OskarRoeske2/docker"  style=color:black>About</a>
+      </nav>
 </head>
-
 <body>
     <main>
-        <h1>I have been seen {{ count }} times.</h1>
-        <a href="https://www.hwr-berlin.de/">HWR Homepage</a>
+        <h1 style="background-color:grey;font-family: Arial, Helvetica, sans-serif;">I have been to the mensa {{ count }} times.</h1>
+        <img src="{{ url_for('static', filename='mensa.jpg') }}" alt="Mensa Image">
+        <a href="https://www.hwr-berlin.de/">HWR Homepage</a> <br>
+        <a href="https://www.stw.berlin/mensen/einrichtungen/hochschule-f%C3%BCr-wirtschaft-und-recht-berlin/mensa-hwr-badensche-stra%C3%9Fe.html">Menu</a>
         <ul>
             {% for i in range(1, count+1) %}
             <li>{{ i }}: Hello {{ name }}! </li>
@@ -19,6 +25,6 @@
         </ul>
     </main>
 </body>
-<footer>Oskar Röske</footer>
+<footer>Copyright by Oskar Röske</footer>
 
 </html>
